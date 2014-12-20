@@ -62,6 +62,8 @@ class WalkingHell(SimpleGame):
 		self.player_Height = self.player.player_Height
 		self.player_Weight = self.player.player_Weight
 
+		self.restartCode = 3
+		self.restart_Y = 1700
 
 
 	def init (self):
@@ -94,11 +96,11 @@ class WalkingHell(SimpleGame):
 				self.platform[i].update()
 
 
-		if len(self.code) > 3:
+		if len(self.code) > self.restartCode:
 			self.setCode()
 
 
-		if self.player.y > 1700 :
+		if self.player.y > self.restart_Y :
 			self.setRestartGame(True)
 
 
