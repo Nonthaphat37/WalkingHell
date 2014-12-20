@@ -95,11 +95,11 @@ class WalkingHell(SimpleGame):
 
 
 		if len(self.code) > 3:
-			self.code = []
+			self.setCode()
 
 
 		if self.player.y > 1700 :
-			self.is_restart = True
+			self.setRestartGame(True)
 
 
 
@@ -118,12 +118,15 @@ class WalkingHell(SimpleGame):
 			for i in range(len(self.platform)):
 				if type(self.platform[i]).__name__ == 'Door':
 					self.platform[i].is_correctCode = False
-			self.code = []
+			self.setCode()
 
-			self.setRestartGame()
+			self.setRestartGame(False)
 
-	def setRestartGame(self):
-		self.is_restart = False
+	def setRestartGame(self, set):
+		self.is_restart = set
+
+	def setCode(self):
+		self.code = []
 
 
 	def render(self, surface):
