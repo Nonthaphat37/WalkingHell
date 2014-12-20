@@ -45,12 +45,13 @@ class FloorSlide(Platform):
 		self.range_x1 = range_x1
 		self.range_x2 = range_x2
 		self.vx = 2
+		self.start_vx = self.vx
 
 	def update(self):
 		if self.x <= self.range_x1:
-			self.vx = 2
+			self.vx = self.start_vx
 		elif self.x >= self.range_x2-self.platform_Weight:
-			self.vx = -2
+			self.vx = -self.start_vx
 		self.x += self.vx
 		self.rectfloor = pygame.Rect(self.x, self.y, self.platform_Weight, self.platform_Height)
 
