@@ -12,8 +12,7 @@ class WalkingHell(SimpleGame):
 	pos_Player = (100, 468)	
 	pos_Floor = ((0, 468),(1100, 250),(1750, 168),(2300, -28),(3150, -28),(3250, 350),(3700, 168),(4300, 173),(5000, 168),(5600, 318),(5900, 168),(6400, -532),(6350, -578),(7100, 168),(7700, 168),(8400,200))
 	pos_Box = ((1200, 368),(1180, 150),(2100, 268),(2450, -168),(2750, -168),(4000, 68),(8000, 0))
-	pos_Thorn = ((5600, 318),(5620, 318),(5640, 318),(5660, 318),(5680, 318),(5700, 318),(5720, 318),(5740, 318),(5760, 318),(5780, 318),(5800, 318),
-				(5820, 318),(5840, 318),(5860, 318),(5880, 318))
+	pos_Thorn = ((5600, 318),(5620, 318),(5640, 318),(5660, 318),(5680, 318),(5700, 318),(5720, 318),(5740, 318),(5760, 318),(5780, 318),(5800, 318),(5820, 318),(5840, 318),(5860, 318),(5880, 318))
 
 	def __init__(self):
 		super(WalkingHell, self).__init__(background_color = WalkingHell.BLACK)
@@ -99,7 +98,7 @@ class WalkingHell(SimpleGame):
 			self.code = []
 
 
-		if self.player.y > 1500 :
+		if self.player.y > 1700 :
 			self.is_restart = True
 
 
@@ -121,7 +120,10 @@ class WalkingHell(SimpleGame):
 					self.platform[i].is_correctCode = False
 			self.code = []
 
-			self.is_restart = False
+			self.setRestartGame()
+
+	def setRestartGame(self):
+		self.is_restart = False
 
 
 	def render(self, surface):
